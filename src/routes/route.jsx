@@ -16,6 +16,10 @@ const router = createBrowserRouter([
   {
     path:"/auth",
     element: <AuthLayout/>
+  },
+  {
+    path:"*",
+    element:<h2>Error</h2>
   }
 ]);
 
