@@ -26,7 +26,7 @@ const HomeLayout = () => {
         <Middle/></section>
         </Outlet> */}
 
-        <section className="col-span-6"><h1>Main Content</h1>
+        <section className="col-span-6"><h1 className="font-bold text-lg">Dragon News Home</h1>
         <Outlet/>
         </section>
         <aside className="col-span-3">
