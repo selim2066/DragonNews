@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import HomeLayout from '../layouts/Home Layout';
 import NewsLayout from '../layouts/NewsLayout';
 import AuthLayout from '../layouts/auth/AuthLayout';
+import Page from '../pages/Page';
 
 const router = createBrowserRouter([
   {
@@ -11,11 +12,12 @@ const router = createBrowserRouter([
     children:[
       {
         path:"",
-        element:<Navigate to={"/category/01"}></Navigate>
+        element:<Navigate to={"category/01"}></Navigate>
       },
       {
         path:"category/:id",
-        element:<h1>this is shtt</h1>
+        element:<Page/>,
+        loader: ({params})=>{return fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`)}
       }
     ]
   },
