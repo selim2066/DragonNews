@@ -4,6 +4,8 @@ import HomeLayout from '../layouts/Home Layout';
 import NewsLayout from '../layouts/NewsLayout';
 import AuthLayout from '../layouts/auth/AuthLayout';
 import Page from '../pages/Page';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 const router = createBrowserRouter([
   {
@@ -32,11 +34,11 @@ const router = createBrowserRouter([
     [
       {
         path:"/auth/login",
-      element:<h1>login</h1>
+      element:<Login/>
       },
       {
         path:"/auth/register",
-        element: <h2>register</h2>
+        element: <Register/>
       }
     ]
   },
