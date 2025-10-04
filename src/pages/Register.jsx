@@ -1,27 +1,58 @@
 import React from "react";
 
 const Register = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const name = form.get("name");
+    const photo = form.get("photo");
+    const email = form.get("email");
+    const password = form.get("password");
+    //console.log(name, email);
+  };
+
   return (
     <div className="flex justify-center p-10">
-      <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-        <legend className="fieldset-legend text-center text-2xl translate-y-4">
-          Registration
-        </legend>
+      <form
+        onSubmit={handleSubmit}
+        className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4"
+      >
+        <p className="text-center text-2xl font-bold">Registration</p>
 
         <label className="label">Name</label>
-        <input type="name" className="input" placeholder="Full Name" />
+        <input
+          name="name"
+          type="name"
+          className="input"
+          placeholder="Full Name"
+        />
 
         <label className="label">Photo Url</label>
-        <input type="url" className="input" placeholder="photoURL" />
+        <input
+          name="photo"
+          type="url"
+          className="input"
+          placeholder="photoURL"
+        />
 
         <label className="label">Email</label>
-        <input type="email" className="input" placeholder="Email" />
+        <input
+          name="email"
+          type="email"
+          className="input"
+          placeholder="Email"
+        />
 
         <label className="label">Password</label>
-        <input type="password" className="input" placeholder="Password" />
+        <input
+          name="password"
+          type="password"
+          className="input"
+          placeholder="Password"
+        />
 
-        <button className="btn btn-neutral mt-4">Login</button>
-      </fieldset>
+        <button className="btn btn-neutral mt-4">Submit</button>
+      </form>
     </div>
   );
 };
