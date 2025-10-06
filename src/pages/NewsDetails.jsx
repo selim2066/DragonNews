@@ -15,12 +15,12 @@ const NewsDetails = () => {
         
       <main className="col-span-9">
         <h2 className="text-xl py-3 font-bold font-poppins">Dragon News</h2>
-        <div className="card bg-base-100  shadow-sm">
+        <div className="card bg-base-100  shadow-sm space-y-5">
           <figure className="px-3 pt-10">
             <img
               src={image_url}
-              alt="Shoes"
-              className="rounded-xl"
+              alt={category_id}
+              className="rounded-xl object-cover w-full"
             />
           </figure>
           <div className="card-body items-center">

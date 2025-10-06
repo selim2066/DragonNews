@@ -48,7 +48,7 @@ const NewsCard = ({ news }) => {
         <img
           src={thumbnail_url}
           alt="news thumbnail"
-          className="rounded-xl w-full h-96 object-fill "
+          className="rounded-xl w-full h-96 object-cover "
         />
       </figure>
 
