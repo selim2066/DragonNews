@@ -12,9 +12,10 @@
 
 import React from "react";
 import { FaStar, FaEye, FaShareAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
-  const { title, author, thumbnail_url, details, rating, total_view } = news;
+  const { title, author, thumbnail_url, details, rating, total_view, _id } = news;
   console.log(title);
 
   return (
@@ -53,7 +54,8 @@ const NewsCard = ({ news }) => {
 
       {/* Details */}
       <div className="card-body px-4 py-2">
-        <p className="text-sm text-gray-600 line-clamp-3">{details}</p>
+        <p className="text-sm text-gray-600 line-clamp-3">{details.slice(0,150)}...{" "}</p>
+        <Link to={`/news/${_id}`} className="text-primary">Read More</Link>
       </div>
 
       {/* Footer */}
