@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
   const { title, author, thumbnail_url, details, rating, total_view, _id } = news;
-  console.log(title);
+  //console.log(title);
 
   return (
     <div className="card bg-base-100 shadow-xl border py-2 my-10">
