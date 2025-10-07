@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
 
   const {loginUser}=useContext(AuthContext)
   const location = useLocation()
+  const navigate =useNavigate()
   console.log(location)
 
   const handleLogin = (e) => {
@@ -20,6 +21,7 @@ const Login = () => {
     // Signed in 
     const user = userCredential.user;
     // ...
+    navigate(location?.state ? location.state : "/")
   })
   .catch((error) => {
     alert("error : " +error.message)

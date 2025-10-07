@@ -34,15 +34,19 @@ const router = createBrowserRouter([
     element: <NewsLayout />,
   },
   {
-path: "/news/:id",
-element:<PrivateRoutes>
-  <NewsDetails></NewsDetails>
-</PrivateRoutes>,
-loader: ({params})=>{
-  return fetch(` https://openapi.programming-hero.com/api/news/${params.id}`)
-}
-  }
-,  {
+    path: "/news/:id",
+    element: (
+      <PrivateRoutes>
+        <NewsDetails></NewsDetails>
+      </PrivateRoutes>
+    ),
+    loader: ({ params }) => {
+      return fetch(
+        ` https://openapi.programming-hero.com/api/news/${params.id}`
+      );
+    },
+  },
+  {
     path: "/auth",
     element: <AuthLayout />,
     children: [
