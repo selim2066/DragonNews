@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext);
+   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +14,7 @@ const Register = () => {
     const email = form.get("email");
     const password = form.get("password");
     //console.log(name, email);
-    const navigate = useNavigate();
+   
 
     createNewUser(email, password)
       .then((userCredential) => {

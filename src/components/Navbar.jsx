@@ -14,8 +14,18 @@ const Navbar = () => {
         <Link to="/about">About</Link>
       </div>
       <div className="flex gap-2 items-center">
-        <img src={userIcon} alt="" />
-
+        {user && user?.email ? (
+          <div>
+            <img
+              className="h-10 rounded-full object-cover"
+              src={user?.photoURL}
+              alt=""
+            />
+            <p>{user.displayName}</p>
+          </div>
+        ) : (
+          <img src={userIcon} alt="" />
+        )}
         {user && user?.email ? (
           <button
             className="btn bg-black/50 text-white font-bold"
