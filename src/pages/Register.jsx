@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,17 +14,26 @@ const Register = () => {
     const email = form.get("email");
     const password = form.get("password");
     //console.log(name, email);
-   
+    console.log("🟡 Name entered:", name);
+  console.log("🟡 Photo URL entered:", photo); 
 
     createNewUser(email, password)
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
         // ...
-        console.log(user);
-        setUser(user);
+        // console.log(user);
+        // setUser(user);
+        
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
+            setUser({
+              ...user,
+              displayName: name,
+              photoURL: photo,
+            });
+            //console.log(user);
+            //setUser(user);
             navigate("/");
           })
           .catch((err) => {

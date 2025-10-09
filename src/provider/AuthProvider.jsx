@@ -14,28 +14,27 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loader, setLoader]= useState(true)
+  const [loader, setLoader] = useState(true);
 
   const createNewUser = (email, password) => {
-    setLoader(true)
+    setLoader(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const loginUser =(email, password)=>{
-    setLoader(true)
+  const loginUser = (email, password) => {
+    setLoader(true);
 
-    return signInWithEmailAndPassword(auth, email, password)
-
-  }
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
   const logOut = () => {
-    setLoader(true)
+    setLoader(true);
     return signOut(auth);
   };
 
-  const updateUserProfile=(updateData)=>{
-    return updateProfile(auth.currentUser, updateData)
-  }
+  const updateUserProfile = (updateData) => {
+    return updateProfile(auth.currentUser, updateData);
+  };
 
   const authInfo = {
     user,
@@ -45,16 +44,17 @@ const AuthProvider = ({ children }) => {
     loginUser,
     setLoader,
     loader,
-    updateUserProfile
-
+    updateUserProfile,
   };
 
-  console.log(loader,user);
+  console.log(loader, user);
 
   useEffect(() => {
     const unssubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("🟣 onAuthStateChanged triggered");
+      console.log("🟣 Current user from Firebase:", currentUser);
       setUser(currentUser);
-      setLoader(false)
+      setLoader(false);
     });
     return unssubscribe;
   }, []);
